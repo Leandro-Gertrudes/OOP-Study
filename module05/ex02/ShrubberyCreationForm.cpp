@@ -6,7 +6,7 @@
 /*   By: lgertrud <lgertrud@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 13:50:25 by lgertrud          #+#    #+#             */
-/*   Updated: 2026/04/03 14:05:18 by lgertrud         ###   ########.fr       */
+/*   Updated: 2026/04/09 14:47:32 by lgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,12 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
         throw GradeTooLowException();
 
     std::ofstream file((target + "_shrubbery").c_str());
-    file << "🌳🌳🌳" << std::endl;
+    file << "       *       "  << "       *       " << "       *       " <<  std::endl;
+    file << "      ***      "  << "      ***      " << "      ***      " <<  std::endl;
+    file << "     *****     "  << "     *****     " << "     *****     " <<  std::endl;
+    file << "    *******    "  << "    *******    " << "    *******    " <<  std::endl;
+    file << "   *********   "  << "   *********   " << "   *********   " <<  std::endl;
+    file << "  ***********  "  << "  ***********  " << "  ***********  " <<  std::endl;
+    file << "      |||      "  << "      |||      " << "      |||      " <<  std::endl;
+    file << "      |||      "  << "      |||      " << "      |||      " <<  std::endl;
 }

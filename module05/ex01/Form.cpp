@@ -6,7 +6,7 @@
 /*   By: lgertrud <lgertrud@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 16:58:59 by lgertrud          #+#    #+#             */
-/*   Updated: 2026/03/18 17:03:26 by lgertrud         ###   ########.fr       */
+/*   Updated: 2026/04/09 14:23:16 by lgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void Form::beSigned(const Bureaucrat &b)
     if (b.getGrade() <= this->gradeToSign)
         this->isSigned = true;
     else
-        throw GradeTooLowException();
+        throw Bureaucrat::GradeTooLowException();
 }
 
 

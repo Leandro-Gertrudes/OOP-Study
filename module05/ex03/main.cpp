@@ -6,7 +6,7 @@
 /*   By: lgertrud <lgertrud@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 16:10:29 by lgertrud          #+#    #+#             */
-/*   Updated: 2026/04/03 14:42:13 by lgertrud         ###   ########.fr       */
+/*   Updated: 2026/04/09 15:14:18 by lgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int main()
 	AForm* form;
 
 	form = someRandomIntern.makeForm("robotomy request", "Bender");
+
+	std::cout << std::endl;
 
 	if (form)
 	{

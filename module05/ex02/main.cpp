@@ -6,7 +6,7 @@
 /*   By: lgertrud <lgertrud@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 16:10:29 by lgertrud          #+#    #+#             */
-/*   Updated: 2026/04/03 16:17:03 by lgertrud         ###   ########.fr       */
+/*   Updated: 2026/04/09 15:03:10 by lgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 int main()
 {
 	Bureaucrat b("Boss", 1);
+	//Bureaucrat j("john", 50);
 
 	ShrubberyCreationForm s("home");
 	RobotomyRequestForm r("Bender");
@@ -26,10 +27,11 @@ int main()
 
 	b.signForm(s);
 	b.executeForm(s);
-
-	b.signForm(r);
+	std::cout  << std::endl;
+	
+ 	b.signForm(r);
 	b.executeForm(r);
-
+	std::cout  << std::endl;
 	b.signForm(p);
 	b.executeForm(p);
 }
