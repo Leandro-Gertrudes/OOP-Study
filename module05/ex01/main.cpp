@@ -6,7 +6,7 @@
 /*   By: lgertrud <lgertrud@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 16:10:29 by lgertrud          #+#    #+#             */
-/*   Updated: 2026/04/03 15:58:59 by lgertrud         ###   ########.fr       */
+/*   Updated: 2026/04/09 14:19:54 by lgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main()
 {
 	try
 	{
-		Bureaucrat a("John", 5);
+		Bureaucrat a("John", 15);
 		Form f("school", 10, 20);
 		
 		std::cout << f << std::endl;

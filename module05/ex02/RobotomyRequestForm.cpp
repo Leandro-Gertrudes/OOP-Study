@@ -6,7 +6,7 @@
 /*   By: lgertrud <lgertrud@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 13:53:28 by lgertrud          #+#    #+#             */
-/*   Updated: 2026/04/03 16:28:15 by lgertrud         ###   ########.fr       */
+/*   Updated: 2026/04/09 14:53:03 by lgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 
     std::cout << "BZZZZZZ... drilling..." << std::endl;
 
+    srand(time(0));
     if (rand() % 2)
         std::cout << target << " robotomized successfully!" << std::endl;
     else
