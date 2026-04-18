@@ -6,11 +6,12 @@
 /*   By: lgertrud <lgertrud@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 17:00:50 by lgertrud          #+#    #+#             */
-/*   Updated: 2026/04/14 17:01:23 by lgertrud         ###   ########.fr       */
+/*   Updated: 2026/04/16 15:26:47 by lgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
+
 
 static bool isChar(const std::string& s)
 {
@@ -20,6 +21,7 @@ static bool isChar(const std::string& s)
 static bool isInt(const std::string& s)
 {
     char* end;
+
     std::strtol(s.c_str(), &end, 10);
     return (*end == '\0');
 }
