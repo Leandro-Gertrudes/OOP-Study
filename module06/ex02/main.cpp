@@ -6,7 +6,7 @@
 /*   By: lgertrud <lgertrud@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/16 15:09:19 by lgertrud          #+#    #+#             */
-/*   Updated: 2026/04/16 15:16:52 by lgertrud         ###   ########.fr       */
+/*   Updated: 2026/04/21 16:34:08 by lgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void identify(Base& p);
 
 int main()
 {
+    
     Base* obj = generate();
 
     std::cout << "Pointer identify: ";
