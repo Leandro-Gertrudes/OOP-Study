@@ -6,7 +6,7 @@
 /*   By: lgertrud <lgertrud@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/16 14:57:22 by lgertrud          #+#    #+#             */
-/*   Updated: 2026/04/16 14:57:24 by lgertrud         ###   ########.fr       */
+/*   Updated: 2026/04/21 15:56:41 by lgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main()
     Data data;
 
     data.id = 42;
-    data.name = "Braga";
+    data.name = "Porto";
 
     // original pointer
     Data* originalPtr = &data;
