@@ -6,11 +6,11 @@
 #    By: lgertrud <lgertrud@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/15 17:17:24 by lgertrud          #+#    #+#              #
-#    Updated: 2026/04/23 14:27:51 by lgertrud         ###   ########.fr        #
+#    Updated: 2026/04/23 14:55:37 by lgertrud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = templates
+NAME = iter
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
@@ -27,7 +27,7 @@ RESET = \033[0m
 
 END = @echo "$(GREEN)✔ Compilation complete!$(RESET)\n\n\
 To run the program: ./$(NAME)\n\
-  $(GREEN) " Start with a few"$(RESET)\n\n\
+  $(GREEN) " Iter"$(RESET)\n\n\
 Enjoy 🚀"
 
 all: $(NAME)
