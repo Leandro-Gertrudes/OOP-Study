@@ -6,7 +6,7 @@
 /*   By: lgertrud <lgertrud@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 15:33:18 by lgertrud          #+#    #+#             */
-/*   Updated: 2026/04/23 16:16:43 by lgertrud         ###   ########.fr       */
+/*   Updated: 2026/04/23 16:18:41 by lgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ int main(int, char**)
         test[3] = 1;
     }
     catch(std::exception& e){
-        std::cout << e.what();
+        std::cerr << e.what();
     }
-    
+
     std::cout << "\n\n---testing with string---\n\n";
 
     try
@@ -43,6 +43,6 @@ int main(int, char**)
         testStr[3] = 1;
     }
     catch(std::exception& e){
-        std::cout << e.what();
+        std::cerr << e.what();
     }
 }
