@@ -6,114 +6,54 @@
 /*   By: lgertrud <lgertrud@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/25 16:10:26 by lgertrud          #+#    #+#             */
-/*   Updated: 2026/04/25 17:41:30 by lgertrud         ###   ########.fr       */
+/*   Updated: 2026/04/29 16:19:52 by lgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 
-//canonical
+Span::Span() : _N(0) {}
 
-Span::Span(){
-	this->N = 0;
-	this->index = -1;
-}
+Span::Span(unsigned int N) : _N(N) {}
 
-Span::Span(unsigned int Numb){
-	this->N = Numb;
-	this->array = new int[N];
-	this->index = 0;
-}
+Span::Span(Span const &other) : _N(other._N), _vec(other._vec) {}
 
-Span::Span(Span const &other){
-	*this = other;
-}
-
-Span &Span::operator=(Span const &other){
-	if(this != &other){
-		this->N = other.N;
-		this->array = other.array;
-		this->index = other.index;
-	}
-	return *this;
-}
-
-Span::~Span(){
-	delete this->array;
-}
-
-// functions
-
-
-void Span::addNumber(int num){
-	if((unsigned int)this->index > this->N - 1)
-		throw std::out_of_range("Error");
-
-	array[index] = num;
-	index++;
-}
-
-int Span::shortestSpan(){
-	if(index == 0)
-		throw std::logic_error("Error");
-
-	int i = 0;
-	int j = 0;
-	int tmp = 0;
-	int shortest = 0;
-
-	while(i <= this->index){
-		j = 0;
-		while(j <= this->index){
-			if(j != i)
-				tmp = abs(this->array[j] - this->array[i]);
-			if (shortest == 0 || tmp < shortest){
-				shortest = tmp;
-			}
-			j++;
-		}
-		i++;
-	}
-	return shortest;
-}
-
-int nMin(int *arr, int size) {
-    if (size < 0)
-        throw std::logic_error("empty Array");
-
-    int min = arr[0];
-
-    for (int i = 1; i < size; i++) {
-        if (arr[i] < min)
-            min = arr[i];
+Span &Span::operator=(Span const &other) {
+    if (this != &other) {
+        _N = other._N;
+        _vec = other._vec;
     }
-
-    return min;
+    return *this;
 }
 
-int nMax(int *arr, int size) {
-    if (size < 0)
-        throw std::logic_error("empty Array");
+Span::~Span() {}
 
-    int max = arr[0];
+void Span::addNumber(int num) {
+    if (_vec.size() >= _N)
+        throw std::length_error("Span is full");
+    _vec.push_back(num);
+}
 
-    for (int i = 1; i < size; i++) {
-        if (arr[i] > max)
-            max = arr[i];
+int Span::shortestSpan() const {
+    if (_vec.size() < 2)
+        throw std::logic_error("Not enough numbers to find a span");
+
+    std::vector<int> sorted(_vec);
+    std::sort(sorted.begin(), sorted.end());
+
+    int shortest = sorted[1] - sorted[0];
+    for (size_t i = 2; i < sorted.size(); ++i) {
+        int diff = sorted[i] - sorted[i - 1];
+        if (diff < shortest)
+            shortest = diff;
     }
-
-    return max;
+    return shortest;
 }
 
+int Span::longestSpan() const {
+    if (_vec.size() < 2)
+        throw std::logic_error("Not enough numbers to find a span");
 
-int Span::longestSpan(){
-	if(index == 0)
-		throw std::logic_error("Error");
-
-	int min = nMin(this->array, this->index);
-	int max = nMax(this->array, this->index);
-
-
-	return abs(max - min);
+    return *std::max_element(_vec.begin(), _vec.end())
+         - *std::min_element(_vec.begin(), _vec.end());
 }
-

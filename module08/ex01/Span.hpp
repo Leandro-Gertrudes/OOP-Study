@@ -6,7 +6,7 @@
 /*   By: lgertrud <lgertrud@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/25 16:05:43 by lgertrud          #+#    #+#             */
-/*   Updated: 2026/04/25 16:55:22 by lgertrud         ###   ########.fr       */
+/*   Updated: 2026/04/29 16:20:11 by lgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,33 @@
 #include <string>
 #include <sstream>
 #include <stdexcept>
+#include <algorithm>
+#include <vector>
 #include <math.h>
 
-class Span{
-	private:
-		unsigned int N;
-		int *array;
-		int index;
-	public:
-		Span();
-		Span(unsigned int Numb);
-		Span(Span const &other);
-		Span &operator=(Span const &other);
-		~Span();
+class Span {
+    private:
+        unsigned int    _N;
+        std::vector<int> _vec;
 
-		void addNumber(int num);
-		int shortestSpan();
-		int longestSpan();
+    public:
+        Span();
+        Span(unsigned int N);
+        Span(Span const &other);
+        Span &operator=(Span const &other);
+        ~Span();
+
+        void addNumber(int num);
+
+        template<typename Iterator>
+        void addRange(Iterator begin, Iterator end) {
+            if (_vec.size() + std::distance(begin, end) > _N)
+                throw std::length_error("Span is full");
+            _vec.insert(_vec.end(), begin, end);
+        }
+
+        int shortestSpan() const;
+        int longestSpan() const;
 };
 
 
