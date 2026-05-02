@@ -6,7 +6,7 @@
 /*   By: lgertrud <lgertrud@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/25 16:05:43 by lgertrud          #+#    #+#             */
-/*   Updated: 2026/04/29 16:20:11 by lgertrud         ###   ########.fr       */
+/*   Updated: 2026/05/02 14:43:37 by lgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 #include <iostream>
 #include <string>
+#include <ctime>
 #include <sstream>
 #include <stdexcept>
 #include <algorithm>
@@ -38,8 +39,10 @@ class Span {
 
         template<typename Iterator>
         void addRange(Iterator begin, Iterator end) {
+            
             if (_vec.size() + std::distance(begin, end) > _N)
                 throw std::length_error("Span is full");
+
             _vec.insert(_vec.end(), begin, end);
         }
 

@@ -6,14 +6,29 @@
 /*   By: lgertrud <lgertrud@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 15:38:06 by lgertrud          #+#    #+#             */
-/*   Updated: 2026/04/29 16:44:17 by lgertrud         ###   ########.fr       */
+/*   Updated: 2026/05/02 15:06:41 by lgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.hpp"
 
+static void testReverseIterator() {
+    std::cout << "\n--- Reverse iterator ---" << std::endl;
 
-// Teste identico mas com std::list para comparar output
+    MutantStack<int> ms;
+    ms.push(1);
+    ms.push(2);
+    ms.push(3);
+    ms.push(4);
+    ms.push(5);
+
+    MutantStack<int>::reverse_iterator rit = ms.rbegin();
+    while (rit != ms.rend()) {
+        std::cout << *rit << std::endl; // 5 4 3 2 1
+        ++rit;
+    }
+}
+
 static void testWithList() {
     std::cout << "\n--- std::list---" << std::endl;
 
@@ -64,6 +79,7 @@ int main() {
     std::stack<int> s(mstack);
 
     testWithList();
+    testReverseIterator();
 
     return 0;
 }
