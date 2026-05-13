@@ -6,7 +6,7 @@
 /*   By: lgertrud <lgertrud@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 14:50:17 by lgertrud          #+#    #+#             */
-/*   Updated: 2026/05/08 17:14:10 by lgertrud         ###   ########.fr       */
+/*   Updated: 2026/05/08 20:59:34 by lgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ std::map<std::string, float> BitcoinExchange::loadCSV()
 }
 
 
-void BitcoinExchange::processInput(std::string filename){
+void BitcoinExchange::processExchange(std::string filename){
 	std::ifstream file(filename.c_str());
 	std::string line;
 
@@ -86,10 +86,10 @@ void BitcoinExchange::processInput(std::string filename){
 }
 
 
-///////utils
+///////	utils
 
 
-bool isValidDate(const std::string &date)
+bool BitcoinExchange::isValidDate(const std::string &date)
 {
     if(date.size() != 10)
         return false;
@@ -115,7 +115,7 @@ bool isValidDate(const std::string &date)
     return true;
 }
 
-bool isValidValue(const std::string &str)
+bool BitcoinExchange::isValidValue(const std::string &str)
 {
     int dots = 0;
     size_t i = 0;
@@ -146,7 +146,7 @@ std::string trim(const std::string &str)
     return str.substr(start, end - start + 1);
 }
 
-void find_print_value(std::map<std::string, float> &db, std::string line){
+void BitcoinExchange::find_print_value(std::map<std::string, float> &db, std::string line){
 	
 	size_t pos = line.find('|');
 	
