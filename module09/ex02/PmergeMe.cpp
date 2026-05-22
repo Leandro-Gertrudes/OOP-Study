@@ -6,7 +6,7 @@
 /*   By: lgertrud <lgertrud@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 20:52:42 by lgertrud          #+#    #+#             */
-/*   Updated: 2026/05/13 16:54:17 by lgertrud         ###   ########.fr       */
+/*   Updated: 2026/05/22 15:56:34 by lgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void PmergeMe::mergeInsertVector(std::vector<int> &v){
 	if(size < 2)
 		return;
 
-	// 1. fazer pares e ordenar cada par (maior, menor)
+	// 1. Pairs (higher, lower)
 	std::vector<std::pair<int, int> > pairs;
 	int hasStraggler = 0;
 	int straggler = 0;
@@ -108,14 +108,14 @@ void PmergeMe::mergeInsertVector(std::vector<int> &v){
 		straggler = v[size - 1];
 	}
 
-	// 2. ordenar recursivamente os maiores
+	// 2. recursion
 	std::vector<int> mainChain;
 	for(size_t i = 0; i < pairs.size(); i++)
 		mainChain.push_back(pairs[i].first);
 
 	mergeInsertVector(mainChain);
 
-	// 3. reordenar pares de acordo com main chain
+	// 3. reorder pairs with main chain
 	std::vector<std::pair<int, int> > sortedPairs;
 	for(size_t i = 0; i < mainChain.size(); i++){
 		for(size_t j = 0; j < pairs.size(); j++){
@@ -127,17 +127,16 @@ void PmergeMe::mergeInsertVector(std::vector<int> &v){
 		}
 	}
 
-	// 4. criar pend (menores) na mesma ordem dos pares
+	// 4. pends
 	std::vector<int> pend;
 	for(size_t i = 0; i < sortedPairs.size(); i++)
 		pend.push_back(sortedPairs[i].second);
 
-	// 5. inserir o primeiro menor no inicio da main chain
 	if(!pend.empty()){
 		mainChain.insert(mainChain.begin(), pend[0]);
 	}
 
-	// 6. inserir o resto usando a ordem de Jacobsthal
+	// 5. Jacobsthal
 	std::vector<int> order = jacobsthalOrderVector(pend.size());
 
 	for(size_t i = 0; i < order.size(); i++){
@@ -147,7 +146,7 @@ void PmergeMe::mergeInsertVector(std::vector<int> &v){
 
 		int value = pend[idx];
 
-		// limitar busca ao seu "parceiro" na main chain
+		
 		int limit = idx + i + 1;
 		if(limit > (int)mainChain.size())
 			limit = mainChain.size();
@@ -171,7 +170,7 @@ std::vector<int> PmergeMe::jacobsthalOrderVector(int n){
 	if(n <= 1)
 		return order;
 
-	// sequencia de Jacobsthal: J(0)=0, J(1)=1, J(k) = J(k-1) + 2*J(k-2)
+	// Jacobsthal sequence: J(0)=0, J(1)=1, J(k) = J(k-1) + 2*J(k-2)
 	// 0, 1, 1, 3, 5, 11, 21, 43...
 	std::vector<int> jacob;
 	jacob.push_back(1);
@@ -181,7 +180,7 @@ std::vector<int> PmergeMe::jacobsthalOrderVector(int n){
 		jacob.push_back(next);
 	}
 
-	// gerar ordem de insercao: comecar do indice 1 (ja inserimos pend[0])
+
 	std::vector<int> inserted;
 	inserted.push_back(0);
 
@@ -190,7 +189,6 @@ std::vector<int> PmergeMe::jacobsthalOrderVector(int n){
 		if(j >= n)
 			j = n - 1;
 
-		// inserir de j ate o anterior nao inserido, em ordem decrescente
 		int prev = (k == 0) ? 0 : jacob[k - 1];
 
 		for(int idx = j; idx > prev; idx--){
