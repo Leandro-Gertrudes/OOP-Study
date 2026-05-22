@@ -6,7 +6,7 @@
 /*   By: lgertrud <lgertrud@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 14:35:57 by lgertrud          #+#    #+#             */
-/*   Updated: 2026/05/08 17:03:46 by lgertrud         ###   ########.fr       */
+/*   Updated: 2026/05/22 16:02:23 by lgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main(int argc, char **argv){
 
 		BitcoinExchange Exemple;
 	
-		Exemple.processInput(argv[1]);
+		Exemple.processExchange(argv[1]);
 		
 	}
 	catch(std::exception &e){

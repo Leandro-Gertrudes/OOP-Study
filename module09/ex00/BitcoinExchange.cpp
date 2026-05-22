@@ -6,7 +6,7 @@
 /*   By: lgertrud <lgertrud@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 14:50:17 by lgertrud          #+#    #+#             */
-/*   Updated: 2026/05/08 20:59:34 by lgertrud         ###   ########.fr       */
+/*   Updated: 2026/05/22 16:06:20 by lgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,8 @@ bool BitcoinExchange::isValidValue(const std::string &str)
 
     if(str[0] == '+')
         i = 1;
+	else if(str[0] == '-')
+        throw std::runtime_error("Error: not a positive number.");
 
     for(; i < str.size(); i++)
     {
