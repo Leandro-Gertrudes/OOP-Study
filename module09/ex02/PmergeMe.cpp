@@ -6,7 +6,7 @@
 /*   By: lgertrud <lgertrud@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 20:52:42 by lgertrud          #+#    #+#             */
-/*   Updated: 2026/05/22 15:56:34 by lgertrud         ###   ########.fr       */
+/*   Updated: 2026/05/22 16:55:35 by lgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,7 +153,7 @@ void PmergeMe::mergeInsertVector(std::vector<int> &v){
 
 		std::vector<int>::iterator pos = std::lower_bound(mainChain.begin(), mainChain.begin() + limit, value);
 		mainChain.insert(pos, value);
-	}
+			}
 
 	if(hasStraggler){
 		std::vector<int>::iterator pos = std::lower_bound(mainChain.begin(), mainChain.end(), straggler);
